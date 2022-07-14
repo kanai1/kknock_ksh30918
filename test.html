@@ -10,9 +10,10 @@
 
 <body>
 	<?php
-		$var = 10; // 전역 변수로 선언함
+		$var = 10;
 		function varFunc() {
-			echo "함수 내부에서 호출한 전역 변수 var의 값은 {$GLOBALS['var']}입니다.<br>";
+			$var = 30;
+			echo "함수 내부에서 호출한 전역 변수 var의 값은 {$var}입니다.<br>";
 			global $var;
 			echo "함수 내부에서 호출한 전역 변수 var의 값은 {$var}입니다.<br>";
 		}
