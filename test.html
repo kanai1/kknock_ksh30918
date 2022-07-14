@@ -10,15 +10,7 @@
 
 <body>
 	<?php
-		$var = 10;
-		function varFunc() {
-			$var = 30;
-			echo "함수 내부에서 호출한 전역 변수 var의 값은 {$var}입니다.<br>";
-			global $var;
-			echo "함수 내부에서 호출한 전역 변수 var의 값은 {$var}입니다.<br>";
-		}
-		varFunc();
-		echo "함수 밖에서 호출한 전역 변수 var의 값은 {$var}입니다.";
+		echo '현재 시각은 {date("Y/m/d D G:i:s:u (e)")}입니다.'
 	?>
 </body>
 
