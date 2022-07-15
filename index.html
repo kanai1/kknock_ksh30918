@@ -10,11 +10,17 @@
 
 <body>
 	<h1>로그인</h1>
-	<div>
-		<input type="text" title="ID" id="userId"><br>
-		<input type="password" title="password" id="userPass"><br>
-		<button type="summit" title = "login" id="login">
-	</div>
+	<form method="post" action="/test.html">
+		<div>
+			<input type="text" title="ID" id="userId" hint="ID" placeholder="ID" required="required"><br>
+			<input type="password" title="password" id="userPass" placeholder="password" required="required"><br>
+			<button type="summit" title = "login" id="login" style="padding: 10px 60px 10px 60px" >
+				<span>
+					로그인
+				</span>
+			</button>
+		</div>
+	</form>
 
 </body>
 
