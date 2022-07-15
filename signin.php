@@ -15,7 +15,7 @@
 		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
 			$id = $_POST['txtId'];
-			$password = $_POST['txtPassowrd'];
+			$password = $_POST['txtPassword'];
 
 			if($id == $password)
 				echo '<h1>로그인 성공</h1>';
