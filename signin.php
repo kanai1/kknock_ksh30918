@@ -12,7 +12,7 @@
 	
 </body>
 	<?php
-		if($_SERVER['REQUEST_METHOD'] === 'post')
+		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
 			$id = $_POST['txtId'];
 			$password = $_POST['txtPassword'];
