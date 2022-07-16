@@ -24,17 +24,5 @@
 
 			echo "ID: {$id}<br>Password: {$password}";
 		}
-		else
-		{
-			$id = $_GET['txtId'];
-			$password = $_GET['txtPassword'];
-
-			if($id == $password)
-				echo '<h1>로그인 성공</h1>';
-			else
-				echo '<h1>로그인 실패</h1>';
-
-			echo "ID: {$id}<br>Password: {$password}";
-		}
 	?>
 </html>
