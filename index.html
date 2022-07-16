@@ -9,18 +9,27 @@
 </head>
 
 <body>
-	<h1>로그인</h1>
-	<form method="POST" action="localhost/signin.php">
-		<div>
-			<input type="text" title="ID" id="userId" name = "txtId" placeholder="ID" required="required"><br>
-			<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="password" required="required"><br>
-			<button type="summit" title = "login" id="login" style="padding: 10px 60px 10px 60px">
+	<div>
+		<h1>로그인</h1>
+		<form method="POST" action="signin.php">
+			<div style="float:left; margin:auto;">
+				<input type="text" title="ID" id="userId" name = "txtId" placeholder="ID" required="required"><br>
+				<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="password" required="required"><br>
+				<button type="summit" title="login" id="login" style="padding: 10px 63.5px 10px 63.5px">
+					<span>
+						로그인
+					</span>
+				</button>
+			</div>
+		</form>
+		<form method="GET" action="">
+			<button type="summit" title="register" id="register" style="padding: 35px 10px 35px 10px;">
 				<span>
-					로그인
+					회원가입
 				</span>
 			</button>
-		</div>
-	</form>
+		</form>
+	</div>
 
 </body>
 
