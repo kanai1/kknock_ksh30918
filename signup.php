@@ -10,7 +10,15 @@
 	<?php
 		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
-			
+			$name = $_POST['userName'];
+			$id = $_POST['userId'];
+			$password = $_POST['userPassword'];
+			$password_again = $_POST['userPasswordAgain'];
+
+			if(strcmp($password, $password_again) != 0)
+			{
+				echo "비밀번호가 다릅니다.";
+			}
 		}
 	?>
 </body>
