@@ -7,26 +7,28 @@
 	<title>로그인 페이지</title>
 </head>
 <body>
-	<form method="POST" action="signin.php">
-		<fieldset style="width: 250px;">
-			<legend>로그인</legend>
-			<div style="float:left; margin:auto;">
-				<input type="text" title="ID" id="userId" name = "txtId" placeholder="아이디" required="required"><br>
-				<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="비밀번호" required="required"><br>
-				<button type="summit" title="login" id="login" style="padding: 10px 63.5px 10px 63.5px">
+	<div>
+		<form method="POST" action="signin.php">
+			<fieldset style="width: 250px; margin:10% auto;">
+				<legend>로그인</legend>
+				<div style="float:left; margin:auto;">
+					<input type="text" title="ID" id="userId" name = "txtId" placeholder="아이디" required="required"><br>
+					<input type="password" title="password" id="userPass" name = "txtPassword" placeholder="비밀번호" required="required"><br>
+					<button type="summit" title="login" id="login" style="padding: 10px 63.5px 10px 63.5px">
+						<span>
+							로그인
+						</span>
+					</button>
+				</div>
+			</form>
+			<form method="GET" action="register.html">
+				<button type="summit" title="register" id="register" style="padding: 35px 10px 35px 10px;">
 					<span>
-						로그인
+						회원가입
 					</span>
 				</button>
-			</div>
+			</fieldset>
 		</form>
-		<form method="GET" action="register.html">
-			<button type="summit" title="register" id="register" style="padding: 35px 10px 35px 10px;">
-				<span>
-					회원가입
-				</span>
-			</button>
-		</fieldset>
-	</form>
+	</div>
 </body>
 </html>
