@@ -16,7 +16,7 @@
 			$password_again = $_POST['userPasswordAgain'];
 
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-			$sql_id_find = "SELECT * FROM user_login WHERE login_id=$id";
+			$sql_id_find = "SELECT * FROM user_login WHERE login_id='$id'";
 
 			if (mysqli_connect_errno())
 			{
@@ -25,16 +25,6 @@
 			}else{
 				echo "MySQL 접속 성공";
 			}
-
-			$heredoc = <<< HERE
-			name: $name
-			id: $id
-			password: $password
-			password_again: $password_again
-			HERE;
-
-			echo $heredoc;
-
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
 			{
@@ -56,7 +46,7 @@
 			}
 			else
 			{
-				$sql = "INSERT INTO user_login VALUES ($id, $password, now(), $name)";
+				$sql = "INSERT INTO user_login VALUES ('$id', '$password', now(), '$name')";
 
 				if($result = mysqli_query($conn, $sql))
 				{
