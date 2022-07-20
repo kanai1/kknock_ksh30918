@@ -18,7 +18,14 @@
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 			$sql_id_find = "SELECT * FROM user_login WHERE user_id=$id";
 
-			echo "<span>회원가입 시도중..</span>";
+			if (mysqli_connect_errno())
+			{
+				echo "MySQL 접속 실패". mysqli_connect_error();
+				exit;
+			}else{
+				echo "MySQL 접속 성공";
+			}
+
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
 			{
