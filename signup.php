@@ -26,6 +26,15 @@
 				echo "MySQL 접속 성공";
 			}
 
+			$heredoc = <<< HERE
+			name: $name
+			id: $id
+			password: $password
+			password_again: $paddword_again
+			HERE;
+
+			echo $heredoc;
+
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
 			{
