@@ -21,7 +21,7 @@
 			{
 				$heredoc = <<< HERE
 				<h2>로그인 성공</h2>
-				<br>사용자 아이디: {$result['login_id']}
+				<br>사용자 이름: {$result['user_name']}
 				<br>아이디 생성시간: {$result['created']}
 				<br><button onclick="history.back()">돌아가기</button>
 				HERE;
