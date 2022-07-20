@@ -30,7 +30,7 @@
 			name: $name
 			id: $id
 			password: $password
-			password_again: $paddword_again
+			password_again: $password_again
 			HERE;
 
 			echo $heredoc;
