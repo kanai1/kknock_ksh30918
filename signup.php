@@ -52,7 +52,7 @@
 				{
 					$heredoc = <<< HERE
 					<span>계정 생성에 성공했습니다.</span>
-					<button onclick="location.href='index.html'">로그인으로 돌아가기</button>
+					<button onclick="location.href='/'">로그인으로 돌아가기</button>
 					HERE;
 
 					echo $heredoc;
