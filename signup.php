@@ -15,14 +15,14 @@
 			$password = $_POST['userPassword'];
 			$password_again = $_POST['userPasswordAgain'];
 
-			$conn = mysqli_connect('localhost','TeamA','TeamA1234567@','test');
+			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 			$sql_id_find = "SELECT * FROM user_login WHERE user_id=$id";
 
 			echo "<span>회원가입 시도중..</span>";
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
 			{
-				$heredoc = <<<HERE
+				$heredoc = <<< HERE
 				<span>이미 존재하는 아이디입니다.</span>
 				<button onclick="history.back()">돌아가기</button>
 				HERE;
@@ -31,7 +31,7 @@
 			}
 			else if(strcmp($password, $password_again) != 0)
 			{
-				$heredoc = <<<HERE
+				$heredoc = <<< HERE
 				<span>비밀번호가 다릅니다.</span>
 				<button onclick="history.back()">돌아가기</button>
 				HERE;
@@ -44,7 +44,7 @@
 
 				if($result = mysqli_fetch_array(mysqli_query($conn, $sql)))
 				{
-					$heredoc = <<<HERE
+					$heredoc = <<< HERE
 					<span>계정 생성에 성공했습니다.</span>
 					<button onclick="location.href='index.html'">로그인으로 돌아가기</button>
 					HERE;
@@ -53,7 +53,7 @@
 				}
 				else
 				{
-					$heredoc = <<<HERE
+					$heredoc = <<< HERE
 					<span>계정 생성에 실패했습니다.</span>
 					<button onclick="history.back()">돌아가기</button>
 					HERE;
@@ -64,7 +64,7 @@
 		}
 		else
 		{
-			$heredoc = <<<HERE
+			$heredoc = <<< HERE
 			<span>잘못된 접근입니다.</span>
 			HERE;
 
