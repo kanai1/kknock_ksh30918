@@ -16,7 +16,7 @@
 			$password_again = $_POST['userPasswordAgain'];
 
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-			$sql_id_find = "SELECT * FROM user_login WHERE user_id=$id";
+			$sql_id_find = "SELECT * FROM user_login WHERE login_id=$id";
 
 			if (mysqli_connect_errno())
 			{
