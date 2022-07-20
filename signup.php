@@ -18,6 +18,8 @@
 			$conn = mysqli_connect('localhost','TeamA','TeamA1234567@','test');
 			$sql_id_find = "SELECT * FROM user_login WHERE user_id=$id";
 
+			echo "<span>회원가입 시도중..</span>";
+
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql_id_find)))
 			{
 				$heredoc = <<<HERE
