@@ -49,7 +49,7 @@
 			{
 				$sql = "INSERT INTO user_login VALUES ($id, $password, now(), $name)";
 
-				if($result = mysqli_fetch_array(mysqli_query($conn, $sql)))
+				if($result = mysqli_query($conn, $sql))
 				{
 					$heredoc = <<< HERE
 					<span>계정 생성에 성공했습니다.</span>
