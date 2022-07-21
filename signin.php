@@ -15,7 +15,7 @@
 
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 
-			$sql = "SELECT * FROM user_login where login_id='$id' && login_pw='$password'";
+			$sql = "SELECT * FROM user_login WHERE login_id='$id' && login_pw='$password'";
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql)))
 			{
