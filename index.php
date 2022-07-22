@@ -7,8 +7,26 @@
 	<title>메인페이지</title>
 </head>
 <body>
-	<?php
-		echo "hello";
-	?>
+	<div>
+		<span style="float:right">		
+			<?php
+				if(!session_id())
+				{
+					$heredoc = <<< HERE
+					<a onclick="login.html">로그인<a>하세요.
+					HERE;
+
+					echo $heredoc;
+				}
+				else
+				{
+					$heredoc = <<< HERE
+					{$_SESSION['userName']}님 어서오세요
+					<button>로그아웃</button>
+					HERE;
+				}
+			?>
+		</span>
+	</div>
 </body>
 </html>
