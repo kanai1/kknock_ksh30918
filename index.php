@@ -24,6 +24,8 @@
 					{$_SESSION['user_name']}님 어서오세요
 					<button>로그아웃</button>
 					HERE;
+
+					echo $heredoc;
 				}
 			?>
 		</span>
