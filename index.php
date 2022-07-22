@@ -10,7 +10,7 @@
 	<div>
 		<span style="float:right">		
 			<?php
-				if(!session_id())
+				if(!isset($_SESSION['user_name']))
 				{
 					$heredoc = <<< HERE
 					<a href="login.html">로그인</a>하세요.
