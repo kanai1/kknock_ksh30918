@@ -19,11 +19,13 @@
 
 			if($result = mysqli_fetch_array(mysqli_query($conn, $sql)))
 			{
+				session_start();
+
+				$_SESSION['user_name'] = $result['user_name'];
+				$_SESSION['user_id'] = $result['login_id'];
+
 				$heredoc = <<< HERE
-				<h2>로그인 성공</h2>
-				<br>사용자 이름: {$result['user_name']}
-				<br>아이디 생성시간: {$result['created']}
-				<br><button onclick="history.back()">돌아가기</button>
+				<script>location.replace('index.php')</script>
 				HERE;
 
 				echo $heredoc;

@@ -13,7 +13,7 @@
 				if(!session_id())
 				{
 					$heredoc = <<< HERE
-					<a onclick="login.html">로그인<a>하세요.
+					<a href="login.html">로그인</a>하세요.
 					HERE;
 
 					echo $heredoc;
@@ -21,7 +21,7 @@
 				else
 				{
 					$heredoc = <<< HERE
-					{$_SESSION['userName']}님 어서오세요
+					{$_SESSION['user_name']}님 어서오세요
 					<button>로그아웃</button>
 					HERE;
 				}
