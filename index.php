@@ -22,7 +22,7 @@
 				{
 					$heredoc = <<< HERE
 					{$_SESSION['user_name']}님 어서오세요
-					<button onclick="location.href='index.php'">로그아웃</button>
+					<button onclick="location.href='logout.php'">로그아웃</button>
 					HERE;
 
 					echo $heredoc;
