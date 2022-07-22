@@ -25,7 +25,7 @@
 				$_SESSION['user_id'] = $result['login_id'];
 
 				$heredoc = <<< HERE
-				<script>location.replace('index.php')</script>
+				<script>location.replace('/')</script>
 				HERE;
 
 				echo $heredoc;

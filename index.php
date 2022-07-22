@@ -30,5 +30,9 @@
 			?>
 		</span>
 	</div>
+	<div>
+		<h1>게시판</h1>
+		
+	</div>
 </body>
 </html>
