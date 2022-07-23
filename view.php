@@ -13,11 +13,25 @@
 			$sql = "SELECT * FROM board WHERE post_num = $post_num";
 
 			$result = mysqli_fetch_array(mysqli_query($conn, $sql));
+
+			if($result == "")
+			{
+				$heredoc = <<< HERE
+				<script>
+				alert('글을 찾을 수 없습니다.');
+				location.replace('/');
+				</script>
+				HERE;
+				
+				echo $heredoc;
+			}
 		}
 	?>
 	<title><?php echo $result['title'] ?></title>
 </head>
 <body>
-	
+	<div>
+		
+	</div>
 </body>
 </html>
