@@ -17,8 +17,12 @@
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 		$sql_find = "SELECT * FROM board WHERE post_num=$post_num";
 
-		if(mysqli_query($conn, $sql_find))
+		if($result = mysqli_fetch_array(mysqli_query($conn, $sql_find)))
 		{
+			if($result['user_id'] != $_SESSION['user_id'])
+			{
+				echo $wrong_connection;
+			}
 			$sql_delete = "DELETE FROM board WHERE post_num = $post_num";
 			if(mysqli_query($conn, $sql_delete))
 			{
@@ -36,6 +40,9 @@
 		{
 			echo $wrong_connection;
 		}
-
+	}
+	else
+	{
+		echo $wrong_connection;
 	}
 ?>
