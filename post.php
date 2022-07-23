@@ -19,38 +19,45 @@
 
 			echo $heredoc;
 		}
-
-		$title = $_POST['title'];
-		$body = $_POST['body'];
-		$user_name = $_SESSION['user_name'];
-		$user_id = $_SESSION['user_id'];
-
-		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-
-		$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
-
-		if(mysqli_query($conn, $sql))
+		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
-			$heredoc = <<< HERE
-			<script>
-			alert('글쓰기가 완료되었습니다.');
-			location.href('/');
-			</script>
-			HERE;
-
-			echo $heredoc;
+			$title = $_POST['title'];
+			$body = $_POST['body'];
+			$user_name = $_SESSION['user_name'];
+			$user_id = $_SESSION['user_id'];
+	
+			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+	
+			$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
+	
+			if(mysqli_query($conn, $sql))
+			{
+				$heredoc = <<< HERE
+				<script>
+				alert('글쓰기가 완료되었습니다.');
+				location.replace('/');
+				</script>
+				HERE;
+	
+				echo $heredoc;
+			}
+			else
+			{
+				$heredoc = <<< HERE
+				<script>
+				alert('글쓰기가 정상적으로 처리되지 않았습니다.');
+				location.replace('/');
+				</script>
+				HERE;
+	
+				echo $heredoc;
+			}
 		}
 		else
 		{
-			$heredoc = <<< HERE
-			<script>
-			alert('글쓰기가 정상적으로 처리되지 않았습니다.');
-			location.href('/');
-			</script>
-			HERE;
-
-			echo $heredoc;
+			echo "잘못된 접근입니다.";
 		}
+
 	?>
 </body>
 </html>
