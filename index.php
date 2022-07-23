@@ -36,9 +36,9 @@
 		<div>
 			<thead>
 				<tr>
-					<th width="70">번호</th>
-					<th width="500">제목</th>
-					<th width="120">글쓴이</th>
+					<th style="width:70px">번호</th>
+					<th style="width:500px">제목</th>
+					<th style="width:120px">글쓴이</th>
 				</tr>
 			</thead>
 		</div>
