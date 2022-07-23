@@ -5,6 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인페이지</title>
+	<style>
+		.post_num{width: 70px}
+		.post_title{width: 500px;}
+		.user_name{width: 120px;}
+		.post_time{width: 100px;}
+	</style>
+	<?php
+		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+		$sql = "SELECT * FROM board ORDER BY post_num DESC";
+
+		$result = mysqli_query($conn, $sql);
+	?>
 </head>
 <body>
 	<div>
@@ -34,14 +46,32 @@
 	<div>
 		<h1>게시판</h1>
 		<div>
-			<table>
+			<table style="margin:0 auto;">
 				<thead>
 					<tr>
-						<th style="width:70px">번호</th>
-						<th style="width:500px">제목</th>
-						<th style="width:120px">글쓴이</th>
+						<th class="post_num">번호</th>
+						<th class="post_title">제목</th>
+						<th class="user_name">글쓴이</th>
+						<th class="post_time">작성일시</th>
 					</tr>
 				</thead>
+				<tbody>
+					<?php
+						while($row = mysqli_fetch_assoc($result))
+						{
+							$heredoc = <<< HERE
+							<tr>
+								<td class="post_num">{$row['post_num']}</td>
+								<td class="post_title">{$row['title']}</td>
+								<td class="user_name">{$row['user_name']}</td>
+								<td class="post_time">{$row['posted']}</td>
+							</tr>
+							HERE;
+
+							echo $heredoc;
+						}
+					?>
+				</tbody>
 			</table>
 		</div>
 	</div>
