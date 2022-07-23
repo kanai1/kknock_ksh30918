@@ -32,7 +32,7 @@
 <body>
 	<div>
 		<h2><?php echo $result['title'] ?></h2>
-		<p> <?php echo $result['body'] ?></p>
+		<p> <?php echo nl2br($result['body']) ?></p>
 	</div>
 </body>
 </html>
