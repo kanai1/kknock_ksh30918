@@ -8,7 +8,7 @@
 </head>
 <body>
 	<?php
-		if(!session_id())
+		if(!isset($_SESSION['user_id']))
 		{
 			$heredoc = <<< HERE
 			<script>
