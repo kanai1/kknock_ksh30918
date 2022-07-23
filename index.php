@@ -6,12 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인페이지</title>
 	<style>
-		.post_num{width: 70px; align-content: center;}
-		.post_title{width: 500px; align-content: center;}
-		.user_name{width: 120px; align-content: center;}
-		.post_time{width: 100px; align-content: center;}
+		.post_num{width: 70px;}
+		.post_title{width: 500px;}
+		.user_name{width: 120px;}
+		.post_time{width: 100px;}
 		th, td{
 			border-bottom: 1px solid #444444;
+			align-content: center;
 		}
 	</style>
 	<?php
@@ -64,9 +65,9 @@
 						{
 							$heredoc = <<< HERE
 							<tr>
-								<td class="post_num">{$row['post_num']}</td>
-								<td class="post_title"><a href="view.php?number={$row['posted']}">{$row['title']}</a></td>
-								<td class="user_name">{$row['user_name']}</td>
+								<td class="post_num" style="text-align: center;">{$row['post_num']}</td>
+								<td class="post_title"><a href="view.php?number={$row['post_num']}">{$row['title']}</a></td>
+								<td class="user_name" style="text-align: center;">{$row['user_name']}</td>
 								<td class="post_time">{$row['posted']}</td>
 							</tr>
 							HERE;
