@@ -47,7 +47,7 @@
 			?>
 		</span>
 	</div>
-	<div>
+	<div style="width:70%; margin: 0 auto;">
 		<h1>게시판</h1>
 		<div>
 			<table style="margin:0 auto;">
@@ -78,7 +78,7 @@
 				</tbody>
 			</table>
 		</div>
-		<button onclick="location.href='write.html'">
+		<button onclick="location.href='write.html'" style="float:right">
 			<span>글쓰기</span>
 		</button>
 	</div>
