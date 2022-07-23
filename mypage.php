@@ -4,15 +4,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>글쓰기</title>
+	<title>마이페이지</title>
 </head>
 <body>
-	<div>
-		<h1>자유게시판</h1>
-		<div>
-			<input type="text">
-			<textarea name="body" id="bdy" cols="50" rows="10"></textarea>
-		</div>
-	</div>
+	<?php
+		if(!session_id())
+		{
+			$heredoc = <<< HERE
+			<span>잘못된 접근입니다.</span>
+			<button onclick="location.href='/'">돌아가기</button>
+			HERE;
+		}
+	?>
 </body>
 </html>
