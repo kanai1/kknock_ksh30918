@@ -78,6 +78,9 @@
 				</tbody>
 			</table>
 		</div>
+		<button onclick="location.href='write.html'">
+			<span>글쓰기</span>
+		</button>
 	</div>
 </body>
 </html>
