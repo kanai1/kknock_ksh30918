@@ -6,10 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인페이지</title>
 	<style>
-		.post_num{width: 70px}
-		.post_title{width: 500px;}
-		.user_name{width: 120px;}
-		.post_time{width: 100px;}
+		.post_num{width: 70px; align-content: center;}
+		.post_title{width: 500px; align-content: center;}
+		.user_name{width: 120px; align-content: center;}
+		.post_time{width: 100px; align-content: center;}
+		th, td{
+			border-bottom: 1px solid #444444;
+		}
 	</style>
 	<?php
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
