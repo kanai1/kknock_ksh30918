@@ -1,7 +1,7 @@
 <?php
 	$wrong_connection = <<< HERE
 	<script>
-	alart('잘못된 접근입니다.');
+	alert('잘못된 접근입니다.');
 	location.replace('/');
 	<script>
 	HERE;
@@ -10,6 +10,7 @@
 	{
 		echo $wrong_connection;
 	}
+
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 		$post_num = $_GET['number'];
