@@ -31,7 +31,8 @@
 </head>
 <body>
 	<div>
-		
+		<h2><?php echo $result['title'] ?></h2>
+		<p> <?php echo $result['body'] ?></p>
 	</div>
 </body>
 </html>
