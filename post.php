@@ -13,13 +13,11 @@
 			$heredoc = <<< HERE
 			<script>
 			alert('로그인이 필요합니다.');
-			location.href('login.html');
+			location.replace('login.html');
 			</script>
 			HERE;
 
 			echo $heredoc;
-
-			exit();
 		}
 		if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{

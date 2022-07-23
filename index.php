@@ -33,7 +33,15 @@
 	</div>
 	<div>
 		<h1>게시판</h1>
-		
+		<div>
+			<thead>
+				<tr>
+					<th width="70">번호</th>
+					<th width="500">제목</th>
+					<th width="120">글쓴이</th>
+				</tr>
+			</thead>
+		</div>
 	</div>
 </body>
 </html>
