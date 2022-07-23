@@ -34,13 +34,15 @@
 	<div>
 		<h1>게시판</h1>
 		<div>
-			<thead>
-				<tr>
-					<th style="width:70px">번호</th>
-					<th style="width:500px">제목</th>
-					<th style="width:120px">글쓴이</th>
-				</tr>
-			</thead>
+			<table>
+				<thead>
+					<tr>
+						<th style="width:70px">번호</th>
+						<th style="width:500px">제목</th>
+						<th style="width:120px">글쓴이</th>
+					</tr>
+				</thead>
+			</table>
 		</div>
 	</div>
 </body>
