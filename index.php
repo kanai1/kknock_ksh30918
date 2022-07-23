@@ -65,7 +65,7 @@
 							$heredoc = <<< HERE
 							<tr>
 								<td class="post_num">{$row['post_num']}</td>
-								<td class="post_title">{$row['title']}</td>
+								<td class="post_title"><a href="view.php?number={$row['posted']}">{$row['title']}</a></td>
 								<td class="user_name">{$row['user_name']}</td>
 								<td class="post_time">{$row['posted']}</td>
 							</tr>
