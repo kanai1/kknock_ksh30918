@@ -30,7 +30,7 @@
 				<script>
 				alert('게시글을 삭제했습니다.')
 				location.replace('/');
-				</>
+				</script>
 				HERE;
 
 				echo $heredoc;
