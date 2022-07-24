@@ -10,8 +10,7 @@
 	{
 		echo $wrong_connection;
 	}
-
-	if($_SERVER['REQUEST_METHOD'] == 'GET')
+	else if($_SERVER['REQUEST_METHOD'] == 'GET')
 	{
 		$post_num = $_GET['number'];
 
@@ -20,12 +19,12 @@
 
 		if($result = mysqli_fetch_array(mysqli_query($conn, $sql_find)))
 		{
-			if($result['user_id'] != $_SESSION['user_id'])
+			$sql_delete = "DELETE FROM board WHERE post_num = $post_num";
+			if(strcmp($result['user_id'], $_SESSION['user_id']))
 			{
 				echo $wrong_connection;
 			}
-			$sql_delete = "DELETE FROM board WHERE post_num = $post_num";
-			if(mysqli_query($conn, $sql_delete))
+			else if(mysqli_query($conn, $sql_delete))
 			{
 				$heredoc = <<< HERE
 				<script>
