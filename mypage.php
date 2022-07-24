@@ -40,18 +40,16 @@
 </head>
 <body>
 	<div>
-		<fieldset class="outer" style="width: 20%; margin: 10% auto; padding:2px 10px 30px 10px">
-			<form method="POST" action="update_user_info.php">
+		<form class="outer" method="POST" action="update_user_info.php">
+			<fieldset style="width: 20%; margin: 10% auto; padding:2px 10px 30px 10px">
 				<legend>회원가입</legend>
 				<input type="text" name="userName" placeholder="이름" required="required" value="<?php echo $result['user_name']; ?>"><br>
 				<input type="password" name="userPassword" placeholder="비밀번호" required="required"><br>
 				<input type="password" name="userPasswordAgain" placeholder="비밀번호 확인" required="required"><br>
 				<button type="summit" name="register">회원정보 변경</button>
-			</form>
-			<form method = "GET" action="withdrawal.php">
-			<button type="summit" name="withdrawal">회원탈퇴</button>
-			</form>
-		</fieldset>
+				<button name="withdrawal" onclick="location.href('withdrawal.php')">회원탈퇴</button>
+			</fieldset>
+		</form>
 	</div>
 </body>
 </html>
