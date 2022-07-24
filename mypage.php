@@ -8,12 +8,15 @@
 </head>
 <body>
 	<?php
+		// if(!isset($_SESSION['user_id']))
 		if(!session_id())
 		{
 			$heredoc = <<< HERE
 			<span>잘못된 접근입니다.</span>
 			<button onclick="location.href='/'">돌아가기</button>
 			HERE;
+
+			echo $heredoc;
 		}
 	?>
 </body>
