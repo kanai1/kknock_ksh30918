@@ -3,7 +3,7 @@
 	<script>
 	alert('잘못된 접근입니다.');
 	location.replace('/');
-	<script>
+	</script>
 	HERE;
 
 	if(!isset($_SESSION['user_id']))
@@ -30,7 +30,7 @@
 				<script>
 				alert('게시글을 삭제했습니다.')
 				location.replace('/');
-				</script>
+				</>
 				HERE;
 
 				echo $heredoc;
