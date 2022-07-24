@@ -14,11 +14,6 @@
 	{
 		$referer_domain = $_SERVER['HTTP_REFERER'];
 
-		if(strpos($referer_domain, 'edit.php') == false)
-		{
-			echo $wrong_connection;
-		}
-
 		$post_num = (int)substr($referer_domain, strrpos($referer_domain, "number=") + 7);
 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
