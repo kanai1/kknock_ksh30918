@@ -47,7 +47,7 @@
 				<input type="password" name="userPassword" placeholder="비밀번호" required="required"><br>
 				<input type="password" name="userPasswordAgain" placeholder="비밀번호 확인" required="required"><br>
 				<button type="summit" name="register">회원정보 변경</button>
-				<button name="withdrawal" onclick="location.href('withdrawal.php')">회원탈퇴</button>
+				<button name="withdrawal" onclick="location.href='withdrawal.php'">회원탈퇴</button>
 			</fieldset>
 		</form>
 	</div>
