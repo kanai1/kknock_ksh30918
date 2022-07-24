@@ -5,19 +5,53 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>마이페이지</title>
-</head>
-<body>
+	<style>
+		.outer {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+	</style>
 	<?php
-		// if(!isset($_SESSION['user_id']))
-		if(!session_id())
-		{
-			$heredoc = <<< HERE
-			<span>잘못된 접근입니다.</span>
-			<button onclick="location.href='/'">돌아가기</button>
-			HERE;
+		$wrong_connection = <<< HERE
+		<script>
+		alert('잘못된 접근입니다.');
+		location.replace('/');
+		</script>
+		HERE;
 
-			echo $heredoc;
+		if(!isset($_SESSION['user_id']))
+		{
+			echo $wrong_connection;
+		}
+		else
+		{
+			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+			$sql = "SELECT * FROM user_login WHERE login_id='{$_SESSION['user_id']}'";
+
+			$result = mysqli_fetch_array(mysqli_query($conn, $sql));
+
+			if($result == "")
+			{
+				echo $wrong_connection;
+			}
 		}
 	?>
+</head>
+<body>
+	<div>
+		<fieldset class="outer" style="width: 20%; margin: 10% auto; padding:2px 10px 30px 10px">
+			<form method="POST" action="update_user_info.php">
+				<legend>회원가입</legend>
+				<input type="text" name="userName" placeholder="이름" required="required" value="<?php echo $result['user_name']; ?>"><br>
+				<input type="password" name="userPassword" placeholder="비밀번호" required="required"><br>
+				<input type="password" name="userPasswordAgain" placeholder="비밀번호 확인" required="required"><br>
+				<button type="summit" name="register">회원정보 변경</button>
+			</form>
+			<form method = "GET" action="withdrawal.php">
+			<button type="summit" name="withdrawal">회원탈퇴</button>
+			</form>
+		</fieldset>
+	</div>
 </body>
 </html>
