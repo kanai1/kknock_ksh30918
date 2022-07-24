@@ -32,7 +32,7 @@
 
 		$sql_update = "UPDATE board SET title = '{$_POST['title']}', body = '{$_POST['body']}' WHERE post_num = $post_num";
 
-		if($result = mysqli_fetch_array(mysqli_query($conn, $sql_update)))
+		if($result = mysqli_query($conn, $sql_update))
 		{
 			$heredoc = <<< HERE
 			<script>
