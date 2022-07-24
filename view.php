@@ -39,7 +39,7 @@
 				{
 					$heredoc = <<<HERE
 					<button onclick="location.href='delete.php?number={$result['post_num']}'">삭제</button>
-					<button onclick="location.href='edit.php?nunmber={$result['post_num']}'">수정</button>
+					<button onclick="location.href='edit.php?number={$result['post_num']}'">수정</button>
 					HERE;
 					
 					echo $heredoc;

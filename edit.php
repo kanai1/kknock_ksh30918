@@ -48,7 +48,7 @@
 			<div style="height: 500px;display:flex;flex-direction: column;justify-content: space-evenly;">
 				<input type="text" name="title" placeholder="제목" required="required" value="<?php echo $result['title'] ?>">
 				<textarea name="body" name="body" cols="50" rows="30" placeholder="본문" required="required"><?php echo nl2br($result['body']) ?></textarea>
-				<button type="submit">글쓰기</button>
+				<button type="submit">수정</button>
 			</div>
 		</form>
 	</div>
