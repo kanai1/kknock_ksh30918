@@ -37,7 +37,7 @@
 			$heredoc = <<< HERE
 			<script>
 			alert('정상적으로 수정되었습니다.');
-			location.replace('view.php?number=$post_num');
+			location.replace('/view.php?number={$post_num}');
 			</script>
 			HERE;
 
