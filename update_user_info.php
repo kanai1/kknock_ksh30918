@@ -12,9 +12,10 @@
 	}
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
+		$user_name = $_POST['userName'];
 		$password = $_POST['userPassword'];
 		$passwordAgain = $_POST['userPasswordAgain'];
-	
+
 		if(strcmp($password, $passwordAgain))
 		{
 			$heredoc = <<< HERE
@@ -26,19 +27,19 @@
 
 			echo $heredoc;
 		}
-	
+
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
-	
+
 		if(mysqli_fetch_array(mysqli_query($conn, $sql_find)) == "")
 		{
 			echo $wrong_connection;
 		}
 		else
 		{
-			$sql_delete = "DELETE FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
+			$sql_update = "UPDATE user_login SET login_pw='{$password}', user_name = '$user_name' WHERE login_id = '{$_SESSION['user_id']}'";
 			
-			if(mysqli_query($conn, $sql_delete))
+			if(mysqli_query($conn, $sql_update))
 			{
 				session_start();
 				session_unset();
@@ -46,7 +47,7 @@
 		
 				$heredoc = <<< HERE
 				<script>
-				alert('정상적으로 회원탈퇴되었습니다.');
+				alert('정상적으로 변경되었습니다.\n다시 로그인해주세요.');
 				location.replace('/');
 				</script>
 				HERE;
