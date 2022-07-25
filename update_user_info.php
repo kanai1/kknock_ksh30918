@@ -21,7 +21,7 @@
 			$heredoc = <<< HERE
 			<script>
 			alert('비밀번호가 다릅니다.');
-			location.replace('withdrawal.php');
+			location.replace('mypage.php');
 			</script>
 			HERE;
 
@@ -29,7 +29,7 @@
 		}
 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
+		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}'";
 
 		if(mysqli_fetch_array(mysqli_query($conn, $sql_find)) == "")
 		{
@@ -37,7 +37,7 @@
 		}
 		else
 		{
-			$sql_update = "UPDATE user_login SET login_pw='{$password}', user_name = '$user_name' WHERE login_id = '{$_SESSION['user_id']}'";
+			$sql_update = "UPDATE user_login SET login_pw='{$password}', user_name='{$user_name}' WHERE login_id = '{$_SESSION['user_id']}'";
 			
 			if(mysqli_query($conn, $sql_update))
 			{
