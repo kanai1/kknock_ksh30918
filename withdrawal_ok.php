@@ -34,24 +34,27 @@
 		{
 			echo $wrong_connection;
 		}
-	
-		$sql_delete = "DELETE FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
-		
-		if(mysqli_query($conn, $sql_delete))
+		else
 		{
-			session_start();
-			session_unset();
-			session_destroy();
-	
-			$heredoc = <<< HERE
-			<script>
-			alert('정상적으로 회원탈퇴되었습니다.');
-			location.replace('/');
-			</script>
-			HERE;
-	
-			echo $heredoc;
+			$sql_delete = "DELETE FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
+			
+			if(mysqli_query($conn, $sql_delete))
+			{
+				session_start();
+				session_unset();
+				session_destroy();
+		
+				$heredoc = <<< HERE
+				<script>
+				alert('정상적으로 회원탈퇴되었습니다.');
+				location.replace('/');
+				</script>
+				HERE;
+		
+				echo $heredoc;
+			}
 		}
+	
 	}
 	echo $wrong_connection;
 ?>
