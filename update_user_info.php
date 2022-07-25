@@ -6,17 +6,21 @@
 	</script>
 	HERE;
 
+	session_start();
+
 	if(!isset($_SESSION['user_id']))
 	{
 		echo $wrong_connection;
 	}
-	if($_SERVER['REQUEST_METHOD'] == "POST")
+	else if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		session_start();
 
 		$user_name = $_POST['userName'];
 		$password = $_POST['userPassword'];
 		$passwordAgain = $_POST['userPasswordAgain'];
+
+		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}'";
 
 		if(strcmp($password, $passwordAgain))
 		{
@@ -29,11 +33,7 @@
 
 			echo $heredoc;
 		}
-
-		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}'";
-
-		if(mysqli_fetch_array(mysqli_query($conn, $sql_find)) == "")
+		else if(mysqli_fetch_array(mysqli_query($conn, $sql_find)) == "")
 		{
 			echo $wrong_connection;
 		}
@@ -59,5 +59,8 @@
 			}
 		}
 	}
-	echo $wrong_connection;
+	else
+	{
+		echo $wrong_connection;
+	}
 ?>
