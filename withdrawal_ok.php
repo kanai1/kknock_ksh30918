@@ -23,6 +23,8 @@
 			history.back();
 			</script>
 			HERE;
+
+			echo $heredoc;
 		}
 	
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
