@@ -20,7 +20,7 @@
 			$heredoc = <<< HERE
 			<script>
 			alert('비밀번호가 다릅니다.');
-			location.href('withdrawal.php');
+			location.replace('withdrawal.php');
 			</script>
 			HERE;
 
