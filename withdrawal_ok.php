@@ -15,8 +15,8 @@
 		echo $wrong_connection;
 	}
 
-	$password = $_POST['password'];
-	$passwordAgain = $_POST['passwordAgain'];
+	$password = $_POST['userPassword'];
+	$passwordAgain = $_POST['userPasswordAgain'];
 
 	if(strcmp($password, $passwordAgain))
 	{
