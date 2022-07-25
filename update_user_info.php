@@ -12,6 +12,8 @@
 	}
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
+		session_start();
+
 		$user_name = $_POST['userName'];
 		$password = $_POST['userPassword'];
 		$passwordAgain = $_POST['userPasswordAgain'];
@@ -41,7 +43,6 @@
 			
 			if(mysqli_query($conn, $sql_update))
 			{
-				session_start();
 				session_unset();
 				session_destroy();
 		
@@ -53,6 +54,8 @@
 				HERE;
 		
 				echo $heredoc;
+
+				exit();
 			}
 		}
 	}
