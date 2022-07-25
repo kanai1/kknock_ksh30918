@@ -48,14 +48,13 @@
 		
 				$heredoc = <<< HERE
 				<script>
-				alert('정상적으로 변경되었습니다.\n다시 로그인해주세요.');
+				alert(`정상적으로 변경되었습니다.
+				다시 로그인해주세요.`);
 				location.replace('/');
 				</script>
 				HERE;
 		
 				echo $heredoc;
-
-				exit();
 			}
 		}
 	}
