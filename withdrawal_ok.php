@@ -30,12 +30,12 @@
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 		$sql_find = "SELECT * FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
 	
-		if(mysqli_query($conn, $sql_find) == "")
+		if(mysqli_fetch_array(mysqli_query($conn, $sql_find)) == "")
 		{
 			echo $wrong_connection;
 		}
 	
-		$sql_delete = "DELETE FROM user_login WHERE login_id = '{$_SESSION['user_id']}'";
+		$sql_delete = "DELETE FROM user_login WHERE login_id = '{$_SESSION['user_id']}' && login_pw = '{$password}'";
 		
 		if(mysqli_query($conn, $sql_delete))
 		{
