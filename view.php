@@ -76,8 +76,8 @@
 				{
 					$heredoc = <<< HERE
 					<strong>{$row['user_name']}</strong><br>
-					<p>{row['comment']}</p>
-					<span>작성일시: {row['commented']}</span>
+					<p>{$row['comment']}</p>
+					<span>작성일시: {$row['commented']}</span>
 					<hr>
 					HERE;
 
