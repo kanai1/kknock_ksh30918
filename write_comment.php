@@ -15,7 +15,7 @@
 		$comment = $_POST['comment'];
 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "INSERT INTO comment(post_num, user_id, user_name, comment, commented) VALUE ({$_GET['number']}, {$_SESSION['user_id']}, {$_SESSION['user_name']}, {$comment}, now())";
+		$sql = "INSERT INTO comment(post_num, user_id, user_name, comment, commented) VALUE ({$_GET['number']}, '{$_SESSION['user_id']}', '{$_SESSION['user_name']}', '{$comment}', now())";
 
 		if(!mysqli_query($conn, $sql))
 		{
