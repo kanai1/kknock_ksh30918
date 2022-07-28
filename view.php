@@ -72,6 +72,17 @@
 
 				echo $comment_form;
 			}
+			else
+			{
+				$comment_form = <<< HERE
+				<div>
+				<textarea name="comment" cols="40" rows="5" placeholder="댓글 기능을 사용하려면 로그인하세요." readonly="readonly"></textarea><br>
+				<button type="button" onclick="location.href="login.html">로그인 하기</button>
+				</div>
+				HERE;
+
+				echo $comment_form;
+			}
 		?>
 		<div>
 			<hr>
