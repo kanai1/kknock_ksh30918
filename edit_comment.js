@@ -12,6 +12,6 @@ function comment_edit(button_id)
 	}
 	
 	comment_text.removeAttribute('readonly');
-	comment_text.autofocus = true;
+	comment_text.autofocus = "true";
 	button.innerText = "제출";
 }
