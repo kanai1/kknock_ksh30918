@@ -25,6 +25,10 @@
 				
 				echo $heredoc;
 			}
+
+			$comment_sql = "SELECT * FROM comment WHERE post_num = $post_num ORDER BY comment_num ASC";
+
+			$comment_result = mysqli_query($conn, $comment_sql);
 		}
 	?>
 	<title><?php echo $result['title'] ?></title>
@@ -65,7 +69,22 @@
 				echo $comment_form;
 			}
 		?>
+		<div>
+			<hr>
+			<?php
+				while($row = mysqli_fetch_assoc($comment_result))
+				{
+					$heredoc = <<< HERE
+					<strong>{$row['user_name']}</strong><br>
+					<p>{row['comment']}</p>
+					<span>작성일시: {row['commented']}</span>
+					<hr>
+					HERE;
 
+					echo $heredoc;
+				}
+			?>
+		</div>
 	</div>
 </body>
 </html>
