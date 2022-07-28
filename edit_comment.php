@@ -18,5 +18,4 @@
 		echo $_GET['number'];
 		echo $_POST['comment'];
 	}
-	echo $wrong_connection;
 ?>
