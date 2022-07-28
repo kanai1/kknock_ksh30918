@@ -92,7 +92,7 @@
 					if(strcmp($row['user_id'], $_SESSION['user_id']))
 					{
 						$heredoc = <<< HERE
-						<span>작성자: <strong>{$row['user_name']}</strong></span>
+						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
 						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
 						<span>작성일시: {$row['commented']}</span>
 						<hr>
