@@ -63,7 +63,7 @@
 			{
 				$comment_form = <<< HERE
 				<div>
-				<form action="write_comment.php" method="post">
+				<form action="write_comment.php?number={$post_num}" method="post">
 				<textarea name="comment" cols="40" rows="5" placeholder="댓글"></textarea><br>
 				<button type="submit">댓글 쓰기</button>
 				</form>
