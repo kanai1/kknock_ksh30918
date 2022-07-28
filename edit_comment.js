@@ -6,8 +6,11 @@ function comment_edit(button_id)
 	var comment_text = document.getElementById('text#'+comment_num);
 	var form = document.getElementById('form#'+comment_num);
 
+	if(button.innerText == '제출')
+	{
+		button.type = "summit";
+	}
+	
 	comment_text.removeAttribute('readonly');
-	button.type = "summit";
-	form.setAttribute("action", "edit_comment.php?number="+comment_num);
-	form.setAttribute("method", "post");
+	button.innerText = "제출";
 }
