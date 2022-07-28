@@ -93,7 +93,7 @@
 					{
 						$heredoc = <<< HERE
 						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
-						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
+						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea><br>
 						<span>작성일시: {$row['commented']}</span>
 						<hr>
 						HERE;
