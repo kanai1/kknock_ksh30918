@@ -10,8 +10,10 @@ function comment_edit(button_id)
 	{
 		button.type = "summit";
 	}
-	
-	comment_text.removeAttribute('readonly');
-	comment_text.autofocus = "true";
-	button.innerText = "제출";
+	else
+	{
+		comment_text.removeAttribute('readonly');
+		comment_text.style = "border:2px solid;";
+		button.innerText = "제출";
+	}
 }
