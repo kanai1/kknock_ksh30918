@@ -8,6 +8,6 @@ function comment_edit(button_id)
 
 	comment_text.removeAttribute('readonly');
 	button.type = "summit";
-	form.action = "edit_comment.php?number="+comment_num;
-	form.method = "post";
+	form.setAttribute("action", "edit_comment.php?number="+comment_num);
+	form.setAttribute("method", "post");
 }
