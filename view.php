@@ -88,7 +88,7 @@
 					else
 					{
 						$heredoc = <<< HERE
-						<span>작성자: <strong>{$row['user_name']}</strong></span>
+						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
 						<button onclick="location.href='delete_comment.php?number={$row['comment_num']}'">삭제</button>
 						<button onclick="location.href='edit_comment.php?number={$row['comment_num']}'">수정</button>
 						<p>{$row['comment']}</p>
