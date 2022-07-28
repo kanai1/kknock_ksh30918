@@ -35,6 +35,7 @@
 	<style>
 		textarea{resize:none}
 	</style>
+	<script src="edit_comment.js"></script>
 </head>
 <body>
 	<div>
@@ -92,9 +93,11 @@
 					{
 						$heredoc = <<< HERE
 						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
+						<form action="edit_comment.php" method="post">
 						<button onclick="location.href='delete_comment.php?number={$row['comment_num']}'">삭제</button>
-						<button id="edit_comment" script="edit_comment.js">수정</button>
-						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea><br>
+						<button id="edit_comment#{$row['comment_num']}" onclick="comment_edit(this.id)">수정</button><br>
+						<textarea if"text#{$row['comment_num']}" name="comment" cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
+						<form>
 						<span>작성일시: {$row['commented']}</span>
 						<hr>
 						HERE;
