@@ -81,7 +81,7 @@
 					{
 						$heredoc = <<< HERE
 						<span>작성자: <strong>{$row['user_name']}</strong></span>
-						<p>{$row['comment']}</p>
+						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
 						<span>작성일시: {$row['commented']}</span>
 						<hr>
 						HERE;
@@ -93,8 +93,8 @@
 						$heredoc = <<< HERE
 						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
 						<button onclick="location.href='delete_comment.php?number={$row['comment_num']}'">삭제</button>
-						<button id="edit_comment"onclick="location.href='edit_comment.php?number={$row['comment_num']}'">수정</button>
-						<p>{$row['comment']}</p>
+						<button id="edit_comment"onclick="location.href='edit_comment.php?number={$row['comment_num']}'">수정</button><br>
+						<textarea cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
 						<span>작성일시: {$row['commented']}</span>
 						<hr>
 						HERE;
