@@ -10,7 +10,7 @@
 	{
 		echo $wrong_connection;
 	}
-	else if($_SERVER['REQUEST_METHOD'] == "POST")
+	else// if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 		$sql = "";
