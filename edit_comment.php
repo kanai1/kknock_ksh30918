@@ -33,5 +33,8 @@
 			echo "<script>history.back()</script>";
 		}
 	}
-	echo $wrong_connection;
+	else
+	{
+		echo $wrong_connection;
+	}
 ?>
