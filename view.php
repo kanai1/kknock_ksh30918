@@ -48,5 +48,12 @@
 		?>
 		<p> <?php echo nl2br($result['body']) ?></p>
 	</div>
+	<div>
+		<h4>댓글</h4>
+		<form action="write_comment.php" method="post">
+			<input type="text" name="comment" placeholder="댓글">
+			<button type="submit">댓글 쓰기</button>
+		</form>
+	</div>
 </body>
 </html>
