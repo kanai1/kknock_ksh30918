@@ -74,14 +74,30 @@
 			<?php
 				while($row = mysqli_fetch_assoc($comment_result))
 				{
-					$heredoc = <<< HERE
-					<strong>{$row['user_name']}</strong><br>
-					<p>{$row['comment']}</p>
-					<span>작성일시: {$row['commented']}</span>
-					<hr>
-					HERE;
-
-					echo $heredoc;
+					if(strcmp($row['user_id'], $_SESSION['user_id']))
+					{
+						$heredoc = <<< HERE
+						<span>작성자: <strong>{$row['user_name']}</strong></span>
+						<p>{$row['comment']}</p>
+						<span>작성일시: {$row['commented']}</span>
+						<hr>
+						HERE;
+	
+						echo $heredoc;
+					}
+					else
+					{
+						$heredoc = <<< HERE
+						<span>작성자: <strong>{$row['user_name']}</strong></span>
+						<button onclick="location.href='delete_comment.php?number={$row['comment_num']}'">삭제</button>
+						<button onclick="location.href='edit_comment.php?number={$row['comment_num']}'">수정</button>
+						<p>{$row['comment']}</p>
+						<span>작성일시: {$row['commented']}</span>
+						<hr>
+						HERE;
+	
+						echo $heredoc;
+					}
 				}
 			?>
 		</div>
