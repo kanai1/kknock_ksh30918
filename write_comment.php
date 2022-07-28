@@ -23,7 +23,7 @@
 		}
 		else
 		{
-			echo "<script>history.back()</script>";
+			echo "<script>location.href='view.php?number=$post_num'</script>";
 		}
 
 
