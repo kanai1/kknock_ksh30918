@@ -93,7 +93,7 @@
 					{
 						$heredoc = <<< HERE
 						<span>작성자: <strong>{$row['user_name']}</strong></span><br>
-						<form action="edit_comment.php?number={$row['comment_num']}", method="post">
+						<form id="form#{$row['comment_num']}">
 						<button type="button" onclick="location.href='delete_comment.php?number={$row['comment_num']}'">삭제</button>
 						<button type="button" id="edit_comment#{$row['comment_num']}" onclick="comment_edit(this.id)">수정</button><br>
 						<textarea id="text#{$row['comment_num']}" name="comment" cols="40" rows="5" readonly="readonly">{$row['comment']}</textarea>
