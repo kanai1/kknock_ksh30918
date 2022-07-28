@@ -50,10 +50,22 @@
 	</div>
 	<div>
 		<h4>댓글</h4>
-		<form action="write_comment.php" method="post">
-			<textarea name="comment" cols="40" rows="5" placeholder="댓글"></textarea>
-			<button type="submit">댓글 쓰기</button>
-		</form>
+		<?php
+			if(isset($_SESSION['user_id']))
+			{
+				$comment_form = <<< HERE
+				<div>
+				<form action="write_comment.php" method="post">
+				<textarea name="comment" cols="40" rows="5" placeholder="댓글"></textarea><br>
+				<button type="submit">댓글 쓰기</button>
+				</form>
+				</div>
+				HERE;
+
+				echo $comment_form;
+			}
+		?>
+
 	</div>
 </body>
 </html>
