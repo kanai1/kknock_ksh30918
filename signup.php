@@ -38,7 +38,7 @@
 			}
 			else
 			{
-				$sql = "INSERT INTO user_login VALUES ('$id', '$password', now(), '$name')";
+				$sql = "INSERT INTO user_login(login_id, login_pw, created, user_name) VALUES ('$id', '$password', now(), '$name')";
 
 				if($result = mysqli_query($conn, $sql))
 				{
