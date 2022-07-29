@@ -51,6 +51,9 @@
 	</div>
 	<div style="width:70%; margin: 0 auto;">
 		<h1>게시판</h1>
+		<form action="search.php" method="get">
+			<input type="text" name="search" required>
+		</form>
 		<div>
 			<table style="margin:0 auto;">
 				<thead>
