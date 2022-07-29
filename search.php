@@ -56,7 +56,7 @@
 		</span>
 	</div>
 	<div style="width:70%; margin: 0 auto;">
-		<h1>게시판</h1>
+		<a href='/'><h1>게시판</h1></a>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
 				<input type="text" name="query" required placeholder="<?php echo $_GET['query'] ?>">
