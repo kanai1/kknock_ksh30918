@@ -16,7 +16,7 @@
 		}
 		a{
 			text-decoration: none;
-			color: white;
+			color: black;
 		}
 	</style>
 	<?php
