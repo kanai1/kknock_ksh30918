@@ -15,7 +15,8 @@
 			align-content: center;
 		}
 		a{
-		text-decoration: none;
+			text-decoration: none;
+			color: white;
 		}
 	</style>
 	<?php
