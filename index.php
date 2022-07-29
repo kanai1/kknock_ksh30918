@@ -14,6 +14,9 @@
 			border-bottom: 1px solid #444444;
 			align-content: center;
 		}
+		a{
+		text-decoration: none;
+		}
 	</style>
 	<?php
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
