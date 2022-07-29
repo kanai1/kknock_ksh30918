@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>메인페이지</title>
+	<title>검색결과</title>
 	<style>
 		.post_num{width: 70px;}
 		.post_title{width: 500px;}
@@ -16,8 +16,14 @@
 		}
 	</style>
 	<?php
+		if(!isset($_GET['query']))
+		{
+			echo "<script>location.replace('/');</script>";
+		}
+
+		$query = $_GET['query'];
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board ORDER BY post_num DESC";
+		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR body LIKE '%{$query}%' ORDER BY post_num DESC";
 
 		$result = mysqli_query($conn, $sql);
 	?>
@@ -53,7 +59,7 @@
 		<h1>게시판</h1>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
-				<input type="text" name="query" required>
+				<input type="text" name="query" required placeholder="<?php echo $_GET['query'] ?>">
 			</form>
 			<table style="margin:0 auto;">
 				<thead>
