@@ -53,7 +53,7 @@
 		<h1>게시판</h1>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
-				<input type="text" name="query" required>
+				<input type="text" name="query" placeholder="검색">
 			</form>
 			<table style="margin:0 auto;">
 				<thead>

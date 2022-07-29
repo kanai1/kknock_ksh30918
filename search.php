@@ -16,7 +16,7 @@
 		}
 	</style>
 	<?php
-		if(!isset($_GET['query']))
+		if(!isset($_GET['query']) || $_GET['query'] == "")
 		{
 			echo "<script>location.replace('/');</script>";
 		}
