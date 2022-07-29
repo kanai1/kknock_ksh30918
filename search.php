@@ -14,7 +14,7 @@
 			border-bottom: 1px solid #444444;
 			align-content: center;
 		}
-		a{
+		div > a{
 			text-decoration: none;
 			color: black;
 		}
