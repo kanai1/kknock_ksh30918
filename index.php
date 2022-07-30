@@ -20,11 +20,17 @@
 		}
 	</style>
 	<?php
+		if(!isset($_GET['order']))
+		{
+			echo "<script>location.replace('/?order=DESC')</script>";
+		}
+
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board ORDER BY post_num DESC";
+		$sql = "SELECT * FROM board ORDER BY post_num {$_GET['order']}";
 
 		$result = mysqli_query($conn, $sql);
 	?>
+	<script src="order.js"></script>
 </head>
 <body>
 	<div>
@@ -59,6 +65,14 @@
 			<form action="search.php" method="get">
 				<input type="text" name="query" placeholder="검색">
 			</form>
+			<div>
+				<input type="radio" onclick="order('DESC')" name="DESC" id="DESC_radio" <?php if($_GET['order'] == "DESC") echo "checked"; ?>>
+				<label for="DESC">최신순</label>
+			</div>
+			<div>
+				<input type="radio" onclick="order('ASC')" name="ASC" id="ASC_radio" <?php if($_GET['order'] == "ASC") echo "checked"; ?>>
+				<label for="ASC">오래된순</label>
+			</div>
 			<table style="margin:0 auto;">
 				<thead>
 					<tr>
