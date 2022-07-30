@@ -4,11 +4,11 @@ function order(option)
 
 	if(option == 'DESC')
 	{
-		url.searchParams('order','DESC');
+		url.searchParams.set('order','DESC');
 	}
 	else if(option == 'ASC')
 	{
-		url.searchParams('order','ASC');
+		url.searchParams.set('order','ASC');
 	}
 
 	location.href = url;
