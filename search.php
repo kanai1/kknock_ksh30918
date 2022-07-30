@@ -31,6 +31,10 @@
 
 		$result = mysqli_query($conn, $sql);
 	?>
+	<form action="search.php" methdo="get">
+		
+	</form>
+	<script src="order.js"></script>
 </head>
 <body>
 	<div>
@@ -65,6 +69,16 @@
 			<form action="search.php" method="get">
 				<input type="text" name="query" required placeholder="<?php echo $_GET['query'] ?>">
 			</form>
+			<div style="display:flex">
+				<div>
+					<input type="radio" onclick="order('DESC')" name="DESC" id="DESC_radio" <?php if($_GET['order'] == "DESC") echo "checked"; ?>>
+					<label for="DESC">최신순</label>
+				</div>
+				<div>
+					<input type="radio" onclick="order('ASC')" name="ASC" id="ASC_radio" <?php if($_GET['order'] == "ASC") echo "checked"; ?>>
+					<label for="ASC">오래된순</label>
+				</div>
+			</div>
 			<table style="margin:0 auto;">
 				<thead>
 					<tr>

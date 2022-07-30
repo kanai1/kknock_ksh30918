@@ -1,11 +1,15 @@
 function order(option)
 {
+	url = new URL(location.href);
+
 	if(option == 'DESC')
 	{
-		location.replace('/?order=DESC');
+		url.searchParams('order','DESC');
 	}
 	else if(option == 'ASC')
 	{
-		location.replace('/?order=ASC');
+		url.searchParams('order','ASC');
 	}
+
+	location.href = url;
 }
