@@ -27,7 +27,7 @@
 
 		$query = $_GET['query'];
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR body LIKE '%{$query}%' ORDER BY post_num DESC";
+		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR body LIKE '%{$query}%' ORDER BY post_num {$_GET['order']}";
 
 		$result = mysqli_query($conn, $sql);
 	?>
