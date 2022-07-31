@@ -25,12 +25,13 @@
 			$body = $_POST['body'];
 			$user_name = $_SESSION['user_name'];
 			$user_id = $_SESSION['user_id'];
-	
+
+			
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-	
+			
 			$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
-	
-			if(mysqli_query($conn, $sql))
+			
+			if($result = mysqli_query($conn, $sql))
 			{
 				$heredoc = <<< HERE
 				<script>
@@ -38,8 +39,17 @@
 				location.replace('/');
 				</script>
 				HERE;
+
+				echo $result;
+
+				if(isset($_FILES))
+				{
+					$filename = $_FILES['file']['name'];
 	
-				echo $heredoc;
+					$dir = "/var/fileupload";
+				}
+	
+				//echo $heredoc;
 			}
 			else
 			{
