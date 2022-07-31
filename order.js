@@ -1,4 +1,4 @@
-function order(option)
+function order_sql(option)
 {
 	url = new URL(location.href);
 

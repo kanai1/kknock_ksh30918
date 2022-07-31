@@ -68,11 +68,11 @@
 			</form>
 			<div style="display:flex">
 				<div>
-					<input type="radio" onclick="order('DESC')" name="order" id="DESC_radio" <?php if($_GET['order'] == "DESC") echo "checked"; ?>>
+					<input type="radio" onclick="order_sql('DESC')" name="order" id="DESC_radio" <?php if($_GET['order'] == "DESC") echo "checked"; ?>>
 					<label for="DESC_radio">최신순</label>
 				</div>
 				<div>
-					<input type="radio" onclick="order('ASC')" name="order" id="ASC_radio" <?php if($_GET['order'] == "ASC") echo "checked"; ?>>
+					<input type="radio" onclick="order_sql('ASC')" name="order" id="ASC_radio" <?php if($_GET['order'] == "ASC") echo "checked"; ?>>
 					<label for="ASC_radio">오래된순</label>
 				</div>
 			</div>
