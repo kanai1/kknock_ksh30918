@@ -45,9 +45,9 @@
 
 					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find))['post_num'];
 
-					echo $_FILES['file']['error'];
-					
-					$filename = $_FILES['file']['name'];
+					echo "<script>alert('{$_FILES['fileUpload']['error']}');</script>";
+
+					$filename = $_FILES['fileUpload']['name'];
 					$dir = "/var/fileupload".$post_num;
 					$file = $dir.$filename;
 
@@ -62,7 +62,7 @@
 				<script>
 				alert('글쓰기가 정상적으로 처리되지 않았습니다.');
 				location.replace('/');
-				</script>
+				</>
 				HERE;
 	
 				echo $heredoc;
