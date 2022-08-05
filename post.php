@@ -51,7 +51,7 @@
 					$dir = "/var/fileupload";
 					$file = $dir.$filename;
 
-					move_uploaded_file($_FILES['file']['tmp_name'], $file);
+					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $file);
 				}
 	
 				echo $heredoc;
