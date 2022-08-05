@@ -44,6 +44,9 @@
 					$sql_find = "SELECT post_num from board where user_name='{$user_name}' AND title='{$title}' ORDER BY post_num DESC LIMIT 1";
 
 					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find))['post_num'];
+
+					echo $_FILES['file']['error'];
+					
 					$filename = $_FILES['file']['name'];
 					$dir = "/var/fileupload".$post_num;
 					$file = $dir.$filename;
