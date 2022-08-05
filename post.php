@@ -48,7 +48,7 @@
 					echo "<script>alert('{$_FILES['fileUpload']['error']}');</script>";
 
 					$filename = $_FILES['fileUpload']['name'];
-					$dir = "/var/fileupload".$post_num;
+					$dir = "/var/fileupload";
 					$file = $dir.$filename;
 
 					move_uploaded_file($_FILES['file']['tmp_name'], $file);
