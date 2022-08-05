@@ -26,7 +26,6 @@
 			$user_name = $_SESSION['user_name'];
 			$user_id = $_SESSION['user_id'];
 
-			
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 			
 			$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
@@ -44,7 +43,7 @@
 				{
 					$sql_find = "SELECT post_num from board where user_name='{$user_name}' AND title='{$title}' ORDER BY post_num DESC LIMIT 1";
 
-					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find));
+					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find))['post_num'];
 					$filename = $_FILES['file']['name'];
 					$dir = "/var/fileupload".$post_num;
 					$file = $dir.$filename;
