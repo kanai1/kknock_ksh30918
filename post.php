@@ -31,7 +31,7 @@
 			
 			$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
 			
-			if($result = mysqli_query($conn, $sql))
+			if(mysqli_query($conn, $sql))
 			{
 				$heredoc = <<< HERE
 				<script>
@@ -40,16 +40,19 @@
 				</script>
 				HERE;
 
-				echo $result;
-
 				if(isset($_FILES))
 				{
+					$sql_find = "SELECT post_num from board where user_name='{$user_name}' AND title='{$title}' ORDER BY post_num DESC LIMIT 1";
+
+					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find));
 					$filename = $_FILES['file']['name'];
-	
-					$dir = "/var/fileupload";
+					$dir = "/var/fileupload".$post_num;
+					$file = $dir.$filename;
+
+					move_uploaded_file($_FILES['file']['tmp_name'], $file);
 				}
 	
-				//echo $heredoc;
+				echo $heredoc;
 			}
 			else
 			{
