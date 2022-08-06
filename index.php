@@ -30,7 +30,7 @@
 
 		$result = mysqli_query($conn, $sql);
 	?>
-	<script src="order.js"></script>
+	<script src="main.js"></script>
 </head>
 <body>
 	<div>
@@ -58,7 +58,7 @@
 		</span>
 	</div>
 	<div style="width:70%; margin: 0 auto;">
-		<a href='/'><h1>게시판</h1></a>
+		<a href='javascript:void(0);' onclick="toMain()"><h1>게시판</h1></a>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
 				<input type="text" name="query" placeholder="검색">
