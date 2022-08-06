@@ -34,7 +34,7 @@
 	<form action="search.php" methdo="get">
 		
 	</form>
-	<script src="order.js"></script>
+	<script src="main.js"></script>
 </head>
 <body>
 	<div>
