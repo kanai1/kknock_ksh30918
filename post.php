@@ -32,13 +32,6 @@
 			
 			if(mysqli_query($conn, $sql))
 			{
-				$heredoc = <<< HERE
-				<script>
-				alert('글쓰기가 완료되었습니다.');
-				location.replace('/');
-				</script>
-				HERE;
-
 				if(isset($_FILES))
 				{
 					$sql_find = "SELECT post_num from board where user_name='{$user_name}' AND title='{$title}' ORDER BY post_num DESC LIMIT 1";
@@ -53,6 +46,13 @@
 
 					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $file);
 				}
+
+				$heredoc = <<< HERE
+				<script>
+				alert('글쓰기가 완료되었습니다.');
+				location.replace('/');
+				</script>
+				HERE;
 	
 				echo $heredoc;
 			}
