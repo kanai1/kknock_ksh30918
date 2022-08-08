@@ -36,13 +36,18 @@
 				{
 					$sql_find = "SELECT post_num from board where user_name='{$user_name}' AND title='{$title}' ORDER BY post_num DESC LIMIT 1";
 
-					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find));
+					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find))['post_num'];
 
-					echo "<script>alert('{$post_num['post_num']}');</script>";
+					echo "<script>alert('{$post_num}');</script>";
 
 					$filename = $_FILES['fileUpload']['name'];
 					$dir = "/var/fileupload";
-					$file = $dir.$filename;
+					$file = $dir.$post_num;
+
+					if(!is_dir($dir))
+					{
+						mkdir($dir, 0777);
+					}
 
 					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $file);
 				}
