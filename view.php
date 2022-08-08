@@ -55,6 +55,15 @@
 			}
 		?>
 		<p> <?php echo nl2br($result['body']) ?></p>
+		<?php
+			$filedir = '/var/fileupload/'.$post_num;
+			if(is_dir($filedir))
+			{
+				$path = dir($filedir);
+				$filename = $path->read();
+				echo "<a href='download.php?number={$post_num}'>{$filename}</a>";
+			}
+		?>
 	</div>
 	<div>
 		<h4>댓글</h4>
