@@ -49,7 +49,7 @@
 						mkdir($filedir, 0777);
 					}
 
-					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $filedir.$filename);
+					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $filedir.'/'.$filename);
 				}
 
 				$heredoc = <<< HERE
