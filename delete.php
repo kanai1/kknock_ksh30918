@@ -24,8 +24,15 @@
 			{
 				echo $wrong_connection;
 			}
-			else if(mysqli_query($conn, $sql_delete))
+			else
 			{
+				$filedir = '/var/fileupload/'.$result['post_num'];
+				if(is_dir($filedir))
+				{
+					rmdir_all($filedir);
+				}
+
+				mysqli_query($conn, $sql_delete);
 				$heredoc = <<< HERE
 				<script>
 				alert('게시글을 삭제했습니다.')
@@ -44,5 +51,29 @@
 	else
 	{
 		echo $wrong_connection;
+	}
+
+	function rmdir_all($delete_path)
+	{
+		$dirs = dir($delete_path);
+
+		while(false !== ($entry = $dirs->read()))
+		{
+			if(($entry != '.') && ($entry != '..'))
+			{           
+				if(is_dir($delete_path.'/'.$entry))
+				{
+					rmdir_all($delete_path.'/'.$entry);
+				}
+				else
+				{
+					@unlink($delete_path.'/'.$entry);
+				}
+			}
+		}
+
+		$dirs->close();
+
+		@rmdir($delete_path);
 	}
 ?>
