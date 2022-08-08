@@ -9,7 +9,7 @@
 <body>
 	<div>
 		<h1>자유게시판</h1>
-		<form method="POST" action="post.php">
+		<form method="POST" action="post.php" enctype="multipart/form-data">
 			<div style="height: 500px;display:flex;flex-direction: column;justify-content: space-evenly;">
 				<input type="text" name="title" placeholder="제목" required="required">
 				<textarea name="body" name="body" cols="50" rows="30" placeholder="본문" required="required"></textarea>
