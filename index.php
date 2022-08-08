@@ -62,7 +62,7 @@
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
 				<input type="text" name="query" placeholder="검색">
-				<input type="hidden" name="order" value="<?php echo $_GET['order']; ?>">
+				<input type="hidden" name="order" value="<?php echo $_GET['order'] ? $_GET['order'] : ''; ?>">
 			</form>
 			<div style="display:flex">
 				<div>
