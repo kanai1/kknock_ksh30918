@@ -60,11 +60,11 @@
 			if(is_dir($filedir))
 			{
 				$path = dir($filedir);
-				while(false !== ($entry = $dirs->read()))
+				while(false !== ($entry = $path->read()))
 				{
 					if(($entry != '.') && ($entry != '..'))
 					{           
-						echo "<a href='download.php?number={$post_num}&&name={$entry}'>{$entry}</a><br>";
+						echo "<a href='download.php?number={$post_num}&name={$entry}'>{$entry}</a><br>";
 					}
 				}
 			}
