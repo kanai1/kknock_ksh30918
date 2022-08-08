@@ -17,7 +17,7 @@
 
 	if(is_dir($filedir))
 	{
-		$filepath = $name;
+		$filepath = $filedir.'/'.$name;
 		$filesize = filesize($filepath);
 		$filename = $name;
 
