@@ -38,7 +38,7 @@
 
 		if($rows_count < $start_num || $page < 1)
 		{
-			echo "<script>location.replace('/search?query=$query&order=$order&page=1')</script>";
+			echo "<script>location.replace('/search.php?query=$query&order=$order&page=1')</script>";
 		}
 
 		$result = mysqli_query($conn, $sql_index);
@@ -128,7 +128,7 @@
 			<?php
 				$pre_page = $page - 1;
 				$button = <<< HERE
-				<button onclick="location.href='/search?query=$query&order=$order&page=$pre_page'">$pre_page</button>
+				<button onclick="location.href='/search.php?query=$query&order=$order&page=$pre_page'">$pre_page</button>
 				HERE;
 
 				if($pre_page != 0)
@@ -140,7 +140,7 @@
 			<?php
 				$next_page = $page + 1;
 				$button = <<< HERE
-				<button onclick="location.href='/search?query=$query&order=$order&page=$next_page'">$next_page</button>
+				<button onclick="location.href='/search.php?query=$query&order=$order&page=$next_page'">$next_page</button>
 				HERE;
 
 				if($page * 10 < $rows_count)
