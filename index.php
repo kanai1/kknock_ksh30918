@@ -20,15 +20,28 @@
 		}
 	</style>
 	<?php
-		if(!isset($_GET['order']))
+		if(!isset($_GET['order']) && !isset($_GET['page']))
 		{
-			echo "<script>location.replace('/?order=DESC')</script>";
+			echo "<script>location.replace('/?order=DESC&page=1')</script>";
 		}
+		else if(!isset($_GET['page']))
+		{
+			echo "<script>location.replace('/?order={$_GET['order']}&page=1')</script>";
+		}
+		else if(!isset($_GET['order']))
+		{
+			echo "<script>location.replace('/?order=DESC&page={$_GET['page']}')</script>";
+		}
+		$order = $_GET['order'];
+		$page = $_GET['page'];
+		$start_num = $page * 10;
 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board ORDER BY post_num {$_GET['order']}";
+		$sql = "SELECT * FROM board ORDER BY post_num $order LIMIT $start_num, 10";
 
 		$result = mysqli_query($conn, $sql);
+
+		$rows_count = mysqli_num_rows($result);
 	?>
 	<script src="main.js"></script>
 </head>
@@ -104,6 +117,11 @@
 		<button onclick="location.href='write.html'" style="float:right">
 			<span>글쓰기</span>
 		</button>
+	</div>
+	<div>
+		<button onclick="location.href='/?order=<?php echo $order ?>&page=<?php echo $page - 1?>'"><?php if($page != 1) echo $page - 1;?></button>
+		<span><?php echo $page ?></span>
+		<button onclick="location.href='/?order=<?php echo $order ?>&page=<?php echo $page + 1?>'"><?php if($page * 10 < $rows_count) echo $page - 1;?></button>
 	</div>
 </body>
 </html>
