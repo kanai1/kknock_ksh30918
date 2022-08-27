@@ -40,10 +40,16 @@
 		$sql = "SELECT * FROM board ORDER BY post_num $order";
 
 		$rows_count = mysqli_num_rows(mysqli_query($conn, $sql));
+		
+		if($rows_count < $start_num || $page < 1)
+		{
+			echo "<script>location.replace('/?order=DESC&page=1')</script>";
+		}
 
 		$sql_index = "SELECT * FROM board ORDER BY post_num $order LIMIT $start_num, 10";
 
 		$result = mysqli_query($conn, $sql_index);
+
 	?>
 	<script src="main.js"></script>
 </head>
