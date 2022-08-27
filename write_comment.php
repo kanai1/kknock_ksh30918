@@ -23,7 +23,7 @@
 		}
 		else
 		{
-			echo "<script>location.href='view.php?number=$post_num'</script>";
+			echo "<script>location.href='view.php?number={$post_num}'</script>";
 		}
 
 
