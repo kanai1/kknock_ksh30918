@@ -31,6 +31,7 @@
 			$comment_result = mysqli_query($conn, $comment_sql);
 		}
 	?>
+	<h1><a href="/">자유게시판</a></h1>
 	<title><?php echo $result['title'] ?></title>
 	<style>
 		textarea{resize:none}
