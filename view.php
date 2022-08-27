@@ -35,6 +35,10 @@
 	<title><?php echo $result['title'] ?></title>
 	<style>
 		textarea{resize:none}
+		a{
+			text-decoration: none;
+			color: black;
+		}
 	</style>
 	<script src="edit_comment.js"></script>
 </head>
