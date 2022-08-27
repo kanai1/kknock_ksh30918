@@ -38,8 +38,6 @@
 
 					$post_num = mysqli_fetch_array(mysqli_query($conn, $sql_find))['post_num'];
 
-					echo "<script>alert('{$post_num}');</script>";
-
 					$filename = $_FILES['fileUpload']['name'];
 					$dir = "/var/fileupload/";
 					$filedir = $dir.$post_num;
