@@ -127,7 +127,7 @@
 		</button>
 	</div>
 	<div style="width:70%;margin:0 auto;">
-		<div style="width:5%;margin:0 auto;">
+		<div style="width:10%;margin:0 auto;">
 			<?php
 				$pre_page = $page - 1;
 				$button = <<< HERE
