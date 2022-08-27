@@ -40,7 +40,7 @@
 		$sql = "SELECT * FROM board ORDER BY post_num $order";
 
 		$rows_count = mysqli_num_rows(mysqli_query($conn, $sql));
-		
+
 		if($rows_count < $start_num || $page < 1)
 		{
 			echo "<script>location.replace('/?order=DESC&page=1')</script>";
@@ -139,7 +139,7 @@
 					echo $button;
 				}
 			?>
-			<span><?php echo $page ?></span>
+			<?php echo $page ?>
 			<?php
 				$next_page = $page + 1;
 				$button = <<< HERE
