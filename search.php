@@ -30,7 +30,6 @@
 		$page = $_GET['page'] or 1;
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
-		$order = 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order";
 		$sql_index = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order LIMIT $start_num, 10";
