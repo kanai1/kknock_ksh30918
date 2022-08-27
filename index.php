@@ -139,7 +139,7 @@
 			<button onclick="location.href='/?order=$order&page=$next_page'">$next_page</button>
 			HERE;
 
-			if($next_page * 10 < $rows_count)
+			if($page * 10 < $rows_count)
 			{
 				echo $button;
 			}
