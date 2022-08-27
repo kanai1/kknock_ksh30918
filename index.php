@@ -34,14 +34,16 @@
 		}
 		$order = $_GET['order'];
 		$page = $_GET['page'];
-		$start_num = $page * 10;
+		$start_num = ($page - 1) * 10;
 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board ORDER BY post_num $order LIMIT $start_num, 10";
+		$sql = "SELECT * FROM board ORDER BY post_num $order";
 
-		$result = mysqli_query($conn, $sql);
+		$rows_count = mysqli_num_rows(mysqli_query($conn, $sql));
 
-		$rows_count = mysqli_num_rows($result);
+		$sql_index = "SELECT * FROM board ORDER BY post_num $order LIMIT $start_num, 10";
+
+		$result = mysqli_query($conn, $sql_index);
 	?>
 	<script src="main.js"></script>
 </head>
@@ -119,9 +121,29 @@
 		</button>
 	</div>
 	<div>
-		<button onclick="location.href='/?order=<?php echo $order ?>&page=<?php echo $page - 1?>'"><?php if($page != 1) echo $page - 1;?></button>
+		<?php
+			$pre_page = $page - 1;
+			$button = <<< HERE
+			<button onclick="location.href='/?order=$order&page=$pre_page'">$pre_page</button>
+			HERE;
+
+			if($pre_page != 0)
+			{
+				echo $button;
+			}
+		?>
 		<span><?php echo $page ?></span>
-		<button onclick="location.href='/?order=<?php echo $order ?>&page=<?php echo $page + 1?>'"><?php if($page * 10 < $rows_count) echo $page - 1;?></button>
+		<?php
+			$next_page = $page + 1;
+			$button = <<< HERE
+			<button onclick="location.href='/?order=$order&page=$next_page'">$next_page</button>
+			HERE;
+
+			if($next_page * 10 < $rows_count)
+			{
+				echo $button;
+			}
+		?>
 	</div>
 </body>
 </html>
