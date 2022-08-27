@@ -24,12 +24,25 @@
 		{
 			echo "<script>location.replace('/');</script>";
 		}
+		
 
 		$query = $_GET['query'];
+		$page = $_GET['page'] or 1;
+		$order = $GET['order'] or 'DESC';
+		$start_num = ($page - 1) * 10;
+		$order = 
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR body LIKE '%{$query}%' ORDER BY post_num {$_GET['order']}";
+		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order";
+		$sql_index = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order LIMIT $start_num, 10";
 
-		$result = mysqli_query($conn, $sql);
+		$rows_count = mysqli_num_rows(mysqli_query($conn, $sql));
+
+		if($rows_count < $start_num || $page < 1)
+		{
+			echo "<script>location.replace('/search?query=$query&order=$order&page=1')</script>";
+		}
+
+		$result = mysqli_query($conn, $sql_index);
 	?>
 	<form action="search.php" methdo="get">
 		
@@ -110,6 +123,33 @@
 		<button onclick="location.href='write.html'" style="float:right">
 			<span>글쓰기</span>
 		</button>
+	</div>
+	<div style="width:70%;margin:0 auto;">
+		<div style="width:10%;margin:0 auto;">
+			<?php
+				$pre_page = $page - 1;
+				$button = <<< HERE
+				<button onclick="location.href='/search?query=$query&order=$order&page=$pre_page'">$pre_page</button>
+				HERE;
+
+				if($pre_page != 0)
+				{
+					echo $button;
+				}
+			?>
+			<?php echo $page ?>
+			<?php
+				$next_page = $page + 1;
+				$button = <<< HERE
+				<button onclick="location.href='/search?query=$query&order=$order&page=$next_page'">$next_page</button>
+				HERE;
+
+				if($page * 10 < $rows_count)
+				{
+					echo $button;
+				}
+			?>
+		</div>
 	</div>
 </body>
 </html>
