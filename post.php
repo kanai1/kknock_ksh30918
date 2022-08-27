@@ -19,7 +19,7 @@
 
 			echo $heredoc;
 		}
-		if($_SERVER['REQUEST_METHOD'] === 'POST')
+		else if($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
 			$title = $_POST['title'];
 			$body = $_POST['body'];
