@@ -120,30 +120,32 @@
 			<span>글쓰기</span>
 		</button>
 	</div>
-	<div style="margin:0 auto;">
-		<?php
-			$pre_page = $page - 1;
-			$button = <<< HERE
-			<button onclick="location.href='/?order=$order&page=$pre_page'">$pre_page</button>
-			HERE;
+	<div style="width:70%;margin:0 auto;">
+		<div style="margin:0 auto;">
+			<?php
+				$pre_page = $page - 1;
+				$button = <<< HERE
+				<button onclick="location.href='/?order=$order&page=$pre_page'">$pre_page</button>
+				HERE;
 
-			if($pre_page != 0)
-			{
-				echo $button;
-			}
-		?>
-		<span><?php echo $page ?></span>
-		<?php
-			$next_page = $page + 1;
-			$button = <<< HERE
-			<button onclick="location.href='/?order=$order&page=$next_page'">$next_page</button>
-			HERE;
+				if($pre_page != 0)
+				{
+					echo $button;
+				}
+			?>
+			<span><?php echo $page ?></span>
+			<?php
+				$next_page = $page + 1;
+				$button = <<< HERE
+				<button onclick="location.href='/?order=$order&page=$next_page'">$next_page</button>
+				HERE;
 
-			if($page * 10 < $rows_count)
-			{
-				echo $button;
-			}
-		?>
+				if($page * 10 < $rows_count)
+				{
+					echo $button;
+				}
+			?>
+		</div>
 	</div>
 </body>
 </html>
