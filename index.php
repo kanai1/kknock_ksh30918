@@ -120,7 +120,7 @@
 			<span>글쓰기</span>
 		</button>
 	</div>
-	<div>
+	<div style="margin:0 auto;">
 		<?php
 			$pre_page = $page - 1;
 			$button = <<< HERE
