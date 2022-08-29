@@ -27,10 +27,12 @@
 			$user_id = $_SESSION['user_id'];
 
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
+			$stmt = mysqli_stmt_init($conn);
 			
-			$sql = "INSERT INTO board(title, body, user_id, user_name, posted) VALUES ('$title', '$body', '$user_id', '$user_name', now())";
+			mysqli_stmt_prepare($stmt, "INSERT INTO board(title, body, user_id, user_name, posted) VALUES (?, ?, ?, ?, now())");
+			mysqli_stmt_bind_param($stmt, 'ssss', $title, $body, $user_id, $user_name);
 			
-			if(mysqli_query($conn, $sql))
+			if(mysqli_stmt_execute($stmt))
 			{
 				if(isset($_FILES))
 				{
