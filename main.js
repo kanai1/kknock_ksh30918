@@ -25,9 +25,9 @@ function toMain()
 	location.href = destination;
 }
 
-function chractorchk(obj)
+function chracterchk(obj)
 {
-	var chklist = '#';
+	var chklist = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; ;
 
 	if(chklist.test(obj.value))
 	{
