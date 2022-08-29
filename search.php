@@ -32,7 +32,7 @@
 
 		$page = 1;
 		if(isset($_GET['page'])) $page = $_GET['page'];
-		$query = $_GET['query'];
+		$query1 = $query2 = $_GET['query'];
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
@@ -45,8 +45,8 @@
 		mysqli_stmt_prepare($sql, $sql1);
 		mysqli_stmt_prepare($sql_index, $sql2);
 
-		mysqli_stmt_bind_param($sql, 'ss', array($query, $query));
-		mysqli_stmt_bind_param($sql_index, 'ss', $query, $query);
+		mysqli_stmt_bind_param($sql, 'ss', $query1, $query2);
+		mysqli_stmt_bind_param($sql_index, 'ss', $query1, $query2);
 		mysqli_stmt_execute($sql);
 		mysqli_stmt_execute($sql_index);
 
