@@ -25,7 +25,7 @@ function toMain()
 	location.href = destination;
 }
 
-function chracterchk(obj)
+function characterchk(obj)
 {
 	var chklist = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; ;
 
