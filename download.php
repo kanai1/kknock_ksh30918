@@ -15,7 +15,11 @@
 	$name = $_GET['name'];
 	$filedir = '/var/fileupload/'.$post_num;
 
-	if(is_dir($filedir))
+	if(strpos($name, '/'))
+	{
+		echo $wrong_connection;
+	}
+	else if(is_dir($filedir))
 	{
 		$filepath = $filedir.'/'.$name;
 		$filesize = filesize($filepath);

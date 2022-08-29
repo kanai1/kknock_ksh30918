@@ -10,9 +10,11 @@
 			$post_num = $_GET['number'];
 
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-			$sql = "SELECT * FROM board WHERE post_num = $post_num";
-
-			$result = mysqli_fetch_array(mysqli_query($conn, $sql));
+			$stmt = mysqli_stmt_init($conn);
+			mysqli_stmt_prepare($stmt, "SELECT * FROM board WHERE post_num=?");
+			mysqli_stmt_bind_param($stmt, 'i', $post_num);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
 
 			if($result == "")
 			{
@@ -78,6 +80,14 @@
 	<div>
 		<h4>댓글</h4>
 		<?php
+			mysqli_stmt_close($stmt);
+
+			$stmt = mysqli_stmt_init($conn);
+			mysqli_stmt_prepare($stmt, "SELECT * FROM comment WHERE post_num = ? ORDER BY comment_num ASC");
+			mysqli_stmt_bind_param($stmt, 'i', $post_num);
+			mysqli_stmt_execute($stmt);
+			$comment_result = mysqli_stmt_get_result($stmt);
+
 			if(isset($_SESSION['user_id']))
 			{
 				$comment_form = <<< HERE
