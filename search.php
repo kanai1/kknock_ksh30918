@@ -41,8 +41,8 @@
 		mysqli_stmt_prepare($sql, "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num ".$order);
 		mysqli_stmt_prepare($sql_index, "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num ".$order." LIMIT ?, 10");
 
-		mysqli_stmt_bind_param($sql, 'ss', $query, $query);
 		mysqli_stmt_bind_param($sql_index, 'ssi', $query, $query, $start_num);
+		mysqli_stmt_bind_param($sql, 'ss', $query, $query);
 		mysqli_stmt_execute($sql);
 		mysqli_stmt_execute($sql_index);
 
