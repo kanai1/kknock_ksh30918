@@ -32,13 +32,13 @@
 
 		$page = 1;
 		if(isset($_GET['page'])) $page = $_GET['page'];
-		$query1 = $query2 = $_GET['query'];
+		$query1 = $query2 = "%{$_GET['query']}%";
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 
-		$sql1 = "SELECT * FROM board WHERE title LIKE '% ? %' OR user_name LIKE '% ? %' ORDER BY post_num $order";
-		$sql2 = "SELECT * FROM board WHERE title LIKE '% ? %' OR user_name LIKE '% ? %' ORDER BY post_num $order LIMIT $start_num, 10";
+		$sql1 = "SELECT * FROM board WHERE title LIKE ? OR user_name LIKE ? ORDER BY post_num $order";
+		$sql2 = "SELECT * FROM board WHERE title LIKE ? OR user_name LIKE ? ORDER BY post_num $order LIMIT $start_num, 10";
 
 		$sql = mysqli_stmt_init($conn);
 		$sql_index = mysqli_stmt_init($conn);
@@ -95,7 +95,7 @@
 		<a href='/'><h1>게시판</h1></a>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
-				<input type="text" name="query" required placeholder="<?php echo $_GET['query'] ?>">
+				<input type="text" name="query" required placeholder="검색">
 			</form>
 			<div style="display:flex">
 				<div>
