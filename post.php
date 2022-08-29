@@ -44,7 +44,7 @@
 
 					if(!is_dir($filedir))
 					{
-						mkdir($filedir, 0777);
+						mkdir($filedir, 0755);
 					}
 
 					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $filedir.'/'.$filename);
