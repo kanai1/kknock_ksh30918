@@ -37,8 +37,8 @@
 		$start_num = ($page - 1) * 10;
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 
-		$sql1 = "SELECT * FROM board WHERE title LIKE %?% OR user_name LIKE %?% ORDER BY post_num $order";
-		$sql2 = "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num $order LIMIT $start_num, 10";
+		$sql1 = "SELECT * FROM board WHERE title LIKE % ? % OR user_name LIKE % ? % ORDER BY post_num $order";
+		$sql2 = "SELECT * FROM board WHERE title LIKE '% ? %' OR user_name LIKE '% ? %' ORDER BY post_num $order LIMIT $start_num, 10";
 
 		$sql = mysqli_stmt_init($conn);
 		$sql_index = mysqli_stmt_init($conn);
