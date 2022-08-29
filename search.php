@@ -24,12 +24,7 @@
 		{
 			echo "<script>location.replace('/');</script>";
 		}
-		// if(strpos($_GET['query'], '#'))
-		// {
-		// 	echo "<script>alert('입력할 수 없는 문자열이 포함되어있습니다.');location.href='/';</script>";
-		// }
 		
-
 		$page = 1;
 		if(isset($_GET['page'])) $page = $_GET['page'];
 		$query1 = $query2 = "%{$_GET['query']}%";
@@ -48,15 +43,16 @@
 		mysqli_stmt_bind_param($sql, 'ss', $query1, $query2);
 		mysqli_stmt_bind_param($sql_index, 'ss', $query1, $query2);
 		mysqli_stmt_execute($sql);
-		mysqli_stmt_execute($sql_index);
-
+		
 		$rows_count = mysqli_num_rows(mysqli_stmt_get_result($sql));
-
+		
 		if($rows_count < $start_num || $page < 1)
 		{
 			echo "<script>location.replace('/search.php?query=$query&order=$order&page=1')</script>";
 		}
-
+		mysqli_stmt_close($sql);
+		
+		mysqli_stmt_execute($sql_index);
 		$result = mysqli_stmt_get_result($sql_index);
 	?>
 	<form action="search.php" methdo="get">
