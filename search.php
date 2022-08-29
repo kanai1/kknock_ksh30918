@@ -42,7 +42,7 @@
 		mysqli_stmt_prepare($sql_index, "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num ".$order." LIMIT ?, 10");
 
 		mysqli_stmt_bind_param($sql, 'ss', $query, $query);
-		mysqli_stmt_bind_param($sql_index, 'sss', $query, $query, $start_num);
+		mysqli_stmt_bind_param($sql_index, 'ssi', $query, $query, $start_num);
 		mysqli_stmt_execute($sql);
 		mysqli_stmt_execute($sql_index);
 
@@ -53,7 +53,7 @@
 			echo "<script>location.replace('/search.php?query=$query&order=$order&page=1')</script>";
 		}
 
-		$result = mysqli_stmt_get_result($sql_index);
+		mysqli_stmt_bind_result($sql_index, $result);
 	?>
 	<form action="search.php" methdo="get">
 		
