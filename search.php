@@ -27,6 +27,7 @@
 		
 		$page = 1;
 		if(isset($_GET['page'])) $page = $_GET['page'];
+		$query = $_GET['query'];
 		$query1 = $query2 = "%{$_GET['query']}%";
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
