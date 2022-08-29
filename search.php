@@ -56,7 +56,7 @@
 			echo "<script>location.replace('/search.php?query=$query&order=$order&page=1')</script>";
 		}
 
-		mysqli_stmt_bind_result($sql_index, $result);
+		$result = mysqli_stmt_get_result($sql_index);
 	?>
 	<form action="search.php" methdo="get">
 		
