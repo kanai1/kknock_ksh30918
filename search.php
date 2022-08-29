@@ -30,8 +30,9 @@
 		// }
 		
 
+		$page = 1;
+		if(isset($_GET['page'])) $page = $_GET['page'];
 		$query = $_GET['query'];
-		$page = $_GET['page'] or 1;
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
