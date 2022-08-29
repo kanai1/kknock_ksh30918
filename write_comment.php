@@ -18,7 +18,7 @@
 		$sql = "INSERT INTO comment(post_num, user_id, user_name, comment, commented) VALUE (?, ?, ?, ?, now())";
 		$stmt = mysqli_stmt_init($conn);
 		mysqli_stmt_prepare($stmt, $sql);
-		mysqli_stmt_bind_param($stmt, '', $_GET['number'], $_SESSION['user_id'], $_SESSION['user_name'], $comment);
+		mysqli_stmt_bind_param($stmt, 'isss', $_GET['number'], $_SESSION['user_id'], $_SESSION['user_name'], $comment);
 
 		if(!mysqli_stmt_execute($stmt))
 		{
