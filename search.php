@@ -24,10 +24,10 @@
 		{
 			echo "<script>location.replace('/');</script>";
 		}
-		if(strpos($_GET['query'], '#'))
-		{
-			echo "<script>alert('입력할 수 없는 문자열이 포함되어있습니다.');location.href='/';</script>";
-		}
+		// if(strpos($_GET['query'], '#'))
+		// {
+		// 	echo "<script>alert('입력할 수 없는 문자열이 포함되어있습니다.');location.href='/';</script>";
+		// }
 		
 
 		$query = $_GET['query'];
