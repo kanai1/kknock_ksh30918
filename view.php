@@ -9,6 +9,18 @@
 		{
 			$post_num = $_GET['number'];
 
+			if(gettype($post_num) != 'integer')
+			{
+				$heredoc = <<< HERE
+				<script>
+				alert('글을 찾을 수 없습니다.');
+				location.replace('/');
+				</script>
+				HERE;
+				
+				echo $heredoc;
+			}
+
 			$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
 			$stmt = mysqli_stmt_init($conn);
 			mysqli_stmt_prepare($stmt, "SELECT * FROM board WHERE post_num=?");
