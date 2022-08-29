@@ -14,7 +14,7 @@
 			mysqli_stmt_prepare($stmt, "SELECT * FROM board WHERE post_num=?");
 			mysqli_stmt_bind_param($stmt, 'i', $post_num);
 			mysqli_stmt_execute($stmt);
-			$result = mysqli_stmt_get_result($stmt);
+			$result = mysqli_fetch_array(mysqli_stmt_get_result($stmt));
 
 			if($result == "")
 			{
