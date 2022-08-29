@@ -9,7 +9,7 @@
 		{
 			$post_num = $_GET['number'];
 
-			if(gettype($post_num) != 'integer')
+			if(is_int($post_num))
 			{
 				$heredoc = <<< HERE
 				<script>
