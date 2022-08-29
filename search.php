@@ -35,17 +35,22 @@
 		$order = $_GET['order'] or 'DESC';
 		$start_num = ($page - 1) * 10;
 		$conn = mysqli_connect('localhost', 'TeamA', 'TeamA1234567@', 'test');
-		$sql = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order";
-		$sql_index = "SELECT * FROM board WHERE title LIKE '%{$query}%' OR user_name LIKE '%{$query}%' ORDER BY post_num $order LIMIT $start_num, 10";
+		$sql = mysqli_prepare($conn, "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num ?");
+		$sql_index = mysqli_prepare($conn, "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num ? LIMIT ?, 10");
 
-		$rows_count = mysqli_num_rows(mysqli_query($conn, $sql));
+		mysqli_stmt_bind_param($sql_index, 'ssss', $query, $query, $order, $start_num);
+		mysqli_stmt_bind_param($sql, 'sss', $query, $query, $order);
+		mysqli_stmt_execute($sql);
+		mysqli_stmt_execute($sql_index);
+
+		$rows_count = mysqli_num_rows(mysqli_stmt_get_result($sql));
 
 		if($rows_count < $start_num || $page < 1)
 		{
 			echo "<script>location.replace('/search.php?query=$query&order=$order&page=1')</script>";
 		}
 
-		$result = mysqli_query($conn, $sql_index);
+		$result = mysqli_stmt_get_result($sql_index);
 	?>
 	<form action="search.php" methdo="get">
 		

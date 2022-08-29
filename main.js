@@ -25,12 +25,12 @@ function toMain()
 	location.href = destination;
 }
 
-function characterchk(obj)
-{
-	var chklist = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; ;
+// function characterchk(obj)
+// {
+// 	var chklist = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; ;
 
-	if(chklist.test(obj.value))
-	{
-		obj.value = obj.value.substring( 0 , obj.value.length - 1 );
-	}
-}
+// 	if(chklist.test(obj.value))
+// 	{
+// 		obj.value = obj.value.substring( 0 , obj.value.length - 1 );
+// 	}
+// }
