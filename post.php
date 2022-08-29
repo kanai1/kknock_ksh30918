@@ -48,7 +48,7 @@
 					}
 
 					move_uploaded_file($_FILES['fileUpload']['tmp_name'], $filedir.'/'.$filename);
-					chmod($filedir.'/'.$filename, 0644);
+					chmod($filedir.'/'.$filename, 0444);
 				}
 
 				$heredoc = <<< HERE
