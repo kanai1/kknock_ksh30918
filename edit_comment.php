@@ -27,7 +27,7 @@
 		}
 
 		$stmt = mysqli_stmt_init($conn);
-		mysqli_stmt_prepare($stmt, "UPDATE comment SET comment='? WHERE comment_num = $comment_num");
+		mysqli_stmt_prepare($stmt, "UPDATE comment SET comment=? WHERE comment_num = $comment_num");
 		mysqli_stmt_bind_param($stmt, 's', $comment);
 
 		if(mysqli_stmt_execute($stmt))
