@@ -30,9 +30,11 @@
 			echo $wrong_connection;
 		}
 
-		$sql_update = "UPDATE board SET title = '{$_POST['title']}', body = '{$_POST['body']}' WHERE post_num = $post_num";
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "UPDATE board SET title = ?, body = ? WHERE post_num = $post_num");
+		mysqli_stmt_bind_param($stmt, 'ss', $_POST['title'], $_POST['body']);
 
-		if($result = mysqli_query($conn, $sql_update))
+		if(mysqli_stmt_execute($stmt))
 		{
 			$heredoc = <<< HERE
 			<script>
