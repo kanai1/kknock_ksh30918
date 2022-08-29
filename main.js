@@ -24,3 +24,13 @@ function toMain()
 	
 	location.href = destination;
 }
+
+function chractorchk(obj)
+{
+	var chklist = '#';
+
+	if(chklist.test(obj.value))
+	{
+		obj.value = obj.value.substring( 0 , obj.value.length - 1 );
+	}
+}

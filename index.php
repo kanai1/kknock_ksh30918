@@ -81,7 +81,7 @@
 		<a href='javascript:void(0);' onclick="toMain()"><h1>게시판</h1></a>
 		<div style="width:70%; margin: 0 auto;">
 			<form action="search.php" method="get">
-				<input type="text" name="query" placeholder="검색">
+				<input type="text" name="query" onkeyup="charactorchk(this)" placeholder="검색">
 				<input type="hidden" name="order" value="<?php echo $_GET['order'] ? $_GET['order'] : ''; ?>">
 			</form>
 			<div style="display:flex">
