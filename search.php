@@ -39,12 +39,13 @@
 
 		$sql1 = "SELECT * FROM board WHERE title = '?' OR user_name = '?' ORDER BY post_num $order";
 		$sql2 = "SELECT * FROM board WHERE title LIKE '%?%' OR user_name LIKE '%?%' ORDER BY post_num $order LIMIT $start_num, 10";
+
 		$sql = mysqli_stmt_init($conn);
 		$sql_index = mysqli_stmt_init($conn);
 		mysqli_stmt_prepare($sql, $sql1);
 		mysqli_stmt_prepare($sql_index, $sql2);
 
-		mysqli_stmt_bind_param($sql, 'ss', $query, $query);
+		mysqli_stmt_bind_param($sql, 'ss', array($query, $query));
 		mysqli_stmt_bind_param($sql_index, 'ss', $query, $query);
 		mysqli_stmt_execute($sql);
 		mysqli_stmt_execute($sql_index);
